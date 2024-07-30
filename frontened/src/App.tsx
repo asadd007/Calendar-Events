@@ -3,8 +3,6 @@ import './App.css';
 import CalendarGrid from './components/calendarGrid';
 import Dropdown from './components/dropdown';
 
-const daysOfWeek = ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'];
-
 function getWeekday(year :any , month:any, day:any) {
   const date = new Date(year, month - 1, day); // month is 0-indexed
   return date.getDay();
