@@ -22,7 +22,7 @@ function getCurrentMonth() {
 function App() {
   const [year, setYear] = React.useState(getCurrentYear());
   const [month, setMonth] = React.useState(getCurrentMonth());
-  // console.log(year)
+
   return (
     <div className='FullBody'>
       Hello We are in new Gen Calendar
