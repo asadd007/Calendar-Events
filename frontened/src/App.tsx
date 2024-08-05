@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import CalendarGrid from './components/calendarGrid';
 import Dropdown from './components/dropdown';
+import TextBox from './components/textBox';
 
 function getWeekday(year :any , month:any, day:any) {
   const date = new Date(year, month - 1, day); // month is 0-indexed
@@ -22,15 +23,25 @@ function getCurrentMonth() {
 function App() {
   const [year, setYear] = React.useState(getCurrentYear());
   const [month, setMonth] = React.useState(getCurrentMonth());
-  // console.log(year)
+  const [clickBut, setClickBut] = React.useState(false)
   return (
+    <>
     <div className='FullBody'>
-      Hello We are in new Gen Calendar
       <div className="gridContainer">
+      
+         {!clickBut && (
+          <>
         <Dropdown year = {year} setYear = {setYear} month = {month} setMonth = {setMonth}/>
-        <CalendarGrid daysToSkip={getWeekday(year, month ,1)} numberofDays={getDaysInMonth(year, month)} year={year} month={month} />
+        <CalendarGrid daysToSkip={getWeekday(year, month ,1)} numberofDays={getDaysInMonth(year, month)} year={year} month={month} clickBut= {clickBut} setClickBut = {setClickBut} />
+        </>
+         )
+         }
+        {
+        clickBut && <TextBox/>
+        }
       </div>
     </div>
+     </>
   );
 }
 
