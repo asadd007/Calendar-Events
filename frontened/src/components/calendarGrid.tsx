@@ -1,10 +1,9 @@
-import React from 'react';
 import { Box } from '@mui/material';
 import Garage from './box';
 const daysOfWeek = ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'];
 
-export default function CalendarGrid(props : { daysToSkip: number; numberofDays: number; year: any; month:any} ) {
-    const { daysToSkip, numberofDays} = props;
+export default function CalendarGrid(props : { daysToSkip: number; numberofDays: number; year: any; month:any; clickBut:any; setClickBut:any} ) {
+    const { daysToSkip, numberofDays,setClickBut} = props;
     const daysofMonth = Array.from(Array(42).keys()).map((day, index) => {
         if(index < daysToSkip || index > numberofDays + daysToSkip-1) {
             return ''
@@ -44,7 +43,7 @@ export default function CalendarGrid(props : { daysToSkip: number; numberofDays:
                 )
             })}
             {daysofMonth?.map((index) => (
-                <Garage text={index} index={index} year={props.year} month={props.month} />
+                <Garage text={index} index={index} year={props.year} month={props.month} clickBut={props.clickBut} setClickBut={setClickBut} />
             ))}
         </Box>
     );

@@ -1,5 +1,4 @@
-import { FormControl, InputLabel, MenuItem, Select, SelectChangeEvent } from "@mui/material";
-import React from "react";
+import { FormControl, InputLabel, MenuItem, Select} from "@mui/material";
 
 export default function DropDown ( props: { year: any; setYear: any; month: any; setMonth: any }) {
     const years = Array.from({ length: 2050 - 2024 + 1 }, (_, index) => 2024 + index);
